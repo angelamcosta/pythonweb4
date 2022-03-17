@@ -16,6 +16,11 @@ services:
       context: .
       dockerfile: dockerfile
     container_name: servidorapi
+    enviroment:
+      DATABASE_HOST: 127.0.0.1
+      DATABASE_NAME: tarefasdb
+      DATABASE_USER: root
+      DATABASE_PWD: admins
     restart: unless-stopped
     volumes:
       - ./webapp/:/var/www/webapi/
