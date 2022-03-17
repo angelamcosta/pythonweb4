@@ -17,4 +17,4 @@ WORKDIR /var/www/
 
 EXPOSE 80
 
-CMD ["python3","main_webapp.py"]
+CMD ["python3","main_webapp.py","main_webapi.py"]
