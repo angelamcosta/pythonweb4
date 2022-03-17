@@ -1,0 +1,37 @@
+pipeline
+{
+    agent
+    {
+        label 'agent 1'
+    }
+    stages
+    {
+        stage('limpar')
+        {
+            steps
+            {
+                cleanWs()
+                echo 'O diretorio foi limpo'
+            }
+        }
+        stage('git')
+        {
+            steps
+            {
+                git branch: 'main', url:'https://github.com/angelamcosta/pythonweb4.git'
+                echo 'Git check out feito com sucesso'
+            }
+        }
+        stage('docker')
+        {
+            steps
+            {
+                script
+                {
+                    bat 'docker-compose up -d'
+                    echo 'Comando executado com sucesso'
+                }
+            }
+        }
+    }
+}
