@@ -10,6 +10,8 @@ RUN pip install --no-cache-dir -r /var/www/requirements.txt
 
 COPY ./webapp/ /var/www/webapp/
 COPY ./webapi /var/www/webapi/
+COPY ./main_webapp.py /var/www/main_webapp.py
+COPY ./main_webapi.py /var/www/main_webapi.py
 
 WORKDIR /var/www/
 
