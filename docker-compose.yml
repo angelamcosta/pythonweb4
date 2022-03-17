@@ -11,16 +11,16 @@ services:
       - ./webapp/:/var/www/webapp/
     ports:
       - "8091:8091"
-    servidorapi:
-      build:
+  servidorapi:
+    build:
       context: .
       dockerfile: dockerfile
-      container_name: servidorapi
-      restart: unless-stopped
-      volumes:
-        - ./webapp/:/var/www/webapi/
-      ports:
-        - "8092:8092"
+    container_name: servidorapi
+    restart: unless-stopped
+    volumes:
+      - ./webapp/:/var/www/webapi/
+    ports:
+      - "8092:8092"
   mysqldb:
     image: mysql:5.7.22
     container_name: mysqldb
