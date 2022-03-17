@@ -1,4 +1,4 @@
-version: "3"
+version: '3'
 
 services:
   sevidorweb:
@@ -10,13 +10,13 @@ services:
     volumes:
       - ./webapp/:/var/www/webapp/
     ports:
-      - "8091:8091"
+      - '8091:8091'
   servidorapi:
     build:
       context: .
       dockerfile: dockerfile
     container_name: servidorapi
-    enviroment:
+    environment:
       DATABASE_HOST: 127.0.0.1
       DATABASE_NAME: tarefasdb
       DATABASE_USER: root
@@ -25,7 +25,7 @@ services:
     volumes:
       - ./webapp/:/var/www/webapi/
     ports:
-      - "8092:8092"
+      - '8092:8092'
   mysqldb:
     image: mysql:5.7.22
     container_name: mysqldb
@@ -33,7 +33,7 @@ services:
       MYSQL_DATABASE: tarefasdb
       MYSQL_ROOT_PASSWORD: admins
     ports:
-      - "3306:3306"
+      - '3306:3306'
     volumes:
       - ./scripts/ddl.sql:/docker-entrypoint-initdb.d/1.sql
       - ./scripts/dml.sql:/docker-entrypoint-initdb.d/2.sql
